@@ -1,0 +1,18 @@
+h1
+{
+  margin-bottom: 20px;
+  color:gray ;
+  text-align: center;
+}
+
+h2
+{
+  margin-bottom: 20px;
+  color:teal ;
+  text-align: center;
+}
+
+.itemList
+{
+  background-color: gray;
+}

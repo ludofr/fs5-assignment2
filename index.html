@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingList">
+  <head>
+    <title>Shopping List</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+
+  </head>
+<body>
+  <h1>Shopping List</h1>
+<div class="container-fluid">
+   <div class="col-lg-6" ng-controller="ProductsToBuyController as ctrl1">
+     <h2>{{ctrl1.ListName}}</h2>
+     <div class="itemList">...</div>
+   </div>
+   <div class="col-lg-6" ng-controller="ProductsBoughtController as ctrl2">
+     <h2>{{ctrl2.ListName}}</h2>
+     <div class="itemList">...</div>
+   </div>
+</div>
+</body>
+</html>

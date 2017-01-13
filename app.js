@@ -18,6 +18,8 @@ function ProductsToBuyController (ShoppingListService)
   ctrl1.itemName = "";
   ctrl1.itemQuantity = "";
 
+  ctrl1.isEmptyBuyList = ShoppingListService.isToBuyListEmpty  ;
+
   ShoppingListService.fillDummy() ;
 
   ctrl1.items  = ShoppingListService.getItemsToBuy();
@@ -29,7 +31,6 @@ function ProductsToBuyController (ShoppingListService)
       ctrl1.itemName = "";
       ctrl1.itemQuantity = "";
     }
-    ctrl1.isEmptyBuyList = ShoppingListService.isToBuyListEmpty()  ;
   }
 
   ctrl1.removeItem = function (itemIndex)
@@ -40,9 +41,7 @@ function ProductsToBuyController (ShoppingListService)
   ctrl1.transferToBoughtItemsList = function (itemIndex)
   {
     ShoppingListService.transferToBoughtItemsList(itemIndex);
-    ctrl1.isEmptyBuyList = ShoppingListService.isToBuyListEmpty()  ;
   }
-
 }
 
 ////////////////////////////////////////////////////////////////
@@ -54,7 +53,7 @@ function ProductsBoughtController (ShoppingListService)
   ctrl2.listName      = "Items Bought" ;
   ctrl2.emptyListText = "Nothing bought yet";
 
-  ctrl2.isEmptyBoughtList = true ;
+  ctrl2.isEmptyBoughtList = ShoppingListService.isToBoughtListEmpty ;
 
   ctrl2.items = ShoppingListService.getItemsBought();
 
@@ -139,6 +138,13 @@ function ShoppingListService()
   {
     return itemsBought ;
   };
+
+  service.isToBoughtListEmpty = function ()
+  {
+    return itemsBought.length == 0 ;
+  };
+
+
 
   service.transferToBoughtItemsList = function (indexInToBuy)
   {

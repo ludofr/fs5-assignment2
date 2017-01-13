@@ -36,7 +36,7 @@
 
     </div>
 
-    <div ng-if="ctrl1.isEmptyBuyList" class="bg-success emptyBuyList" >
+    <div ng-if="ctrl1.isEmptyBuyList();" class="bg-success emptyBuyList" >
       <span class="glyphicon glyphicon-thumbs-up"></span>
       <span> {{ctrl1.emptyListText}}  </span>
     </div>
@@ -60,7 +60,7 @@
    <div class="col-lg-6" ng-controller="ProductsBoughtController as ctrl2">
      <h2>{{ctrl2.listName}}</h2>
 
-     <div ng-if="ctrl2.isEmptyBoughtList" class="bg-warning emptyBoughtList" >
+     <div ng-if="ctrl2.isEmptyBoughtList();" class="bg-warning emptyBoughtList" >
        <span class="glyphicon glyphicon-info-sign"></span>
        <span> {{ctrl2.emptyListText}}</span>
      </div>
@@ -69,10 +69,11 @@
        <ul class="list-unstyled">
          <li ng-repeat="item in ctrl2.items">
            <span class="glyphicon glyphicon-ok addedOK"></span>
-           <span class="itemNQ">{{ item.quantity }} of {{ item.name }} </span>
+           <span class="itemNQ">Bought {{ item.quantity }} of {{ item.name }} </span>
          </li>
        </ul>
      </div>
+
    </div>
 </div>
 </body>

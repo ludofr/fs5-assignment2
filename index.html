@@ -16,12 +16,63 @@
   <h1>Shopping List</h1>
 <div class="container-fluid">
    <div class="col-lg-6" ng-controller="ProductsToBuyController as ctrl1">
-     <h2>{{ctrl1.ListName}}</h2>
-     <div class="itemList">...</div>
+     <h2>{{ctrl1.listName}}</h2>
+
+     <div class="addStuff form-inline">
+
+     <input type="text"
+            class="form-control"
+            ng-model="ctrl1.itemName"
+            placeholder="Item Name">
+
+     <input type="text"
+            class="form-control"
+            ng-model="ctrl1.itemQuantity"
+            placeholder="Quantity">
+
+     <button type="button" class="btn btn-primary" ng-click="ctrl1.addItem();">
+       <span class="glyphicon glyphicon-plus"></span> Add Item
+     </button>
+
+    </div>
+
+    <div ng-if="ctrl1.isEmptyBuyList" class="bg-success emptyBuyList" >
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+      <span> {{ctrl1.emptyListText}}  </span>
+    </div>
+
+     <div class="itemList">
+       <ul class="list-unstyled">
+         <li ng-repeat="item in ctrl1.items">
+           <button class="btn btn-warning btn-sm" ng-click="ctrl1.removeItem($index);">
+              <span class="glyphicon glyphicon-trash"></span>  Remove
+           </button>
+           <button class="btn btn-success btn-sm" ng-click="ctrl1.transferToBoughtItemsList($index);">
+             <span class="glyphicon glyphicon-shopping-cart"></span>
+             Buy
+           </button>
+           <span class="itemNQ"> {{ item.quantity }} of {{ item.name }} </span>
+         </li>
+       </ul>
+     </div>
    </div>
+
    <div class="col-lg-6" ng-controller="ProductsBoughtController as ctrl2">
-     <h2>{{ctrl2.ListName}}</h2>
-     <div class="itemList">...</div>
+     <h2>{{ctrl2.listName}}</h2>
+
+     <div ng-if="ctrl2.isEmptyBoughtList" class="bg-warning emptyBoughtList" >
+       <span class="glyphicon glyphicon-info-sign"></span>
+       <span> {{ctrl2.emptyListText}}</span>
+     </div>
+
+     <div class="itemList">
+       <ul class="list-unstyled">
+         <li ng-repeat="item in ctrl2.items">
+           <span class="glyphicon glyphicon-ok addedOK"></span>
+           <span class="itemNQ">{{ item.quantity }} of {{ item.name }} </span>
+         </li>
+       </ul>
+     </div>
    </div>
 </div>
 </body>

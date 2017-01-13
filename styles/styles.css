@@ -14,5 +14,39 @@ h2
 
 .itemList
 {
-  background-color: gray;
+
+}
+
+.itemList li
+{
+   margin-bottom: 10px ;
+}
+
+.itemNQ
+{
+    padding-left: 15px ;
+}
+
+.addStuff
+{
+  margin-bottom: 20px;
+}
+
+.addedOK
+{
+  color: #5cb85c;
+}
+
+
+.emptyBuyList
+{
+  padding: 10px;
+  width: 40%;
+  text-align: center;
+}
+
+.emptyBoughtList
+{
+  padding: 10px;
+  text-align: center;
 }
